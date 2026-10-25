@@ -5,285 +5,499 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#101b2a">
-  <meta name="description" content="An independent website concept for Thaba Trans, showcasing passenger transport services and customer enquiries in Thabazimbi.">
+
+  <meta name="description" content="An independent website concept for Thaba Trans, showcasing passenger transport and the beautiful surroundings of Thabazimbi.">
+
   <title>Thaba Trans | Moving People Forward</title>
 
   <style>
     :root {
       --navy: #101b2a;
-      --navy-light: #192a3d;
+      --navy2: #192b40;
       --gold: #e9b95d;
       --cream: #f7f5ef;
       --white: #ffffff;
-      --muted: #aeb9c6;
       --ink: #182434;
+      --muted: #647386;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-        sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont,
+        "Segoe UI", Arial, sans-serif;
       background: var(--cream);
       color: var(--ink);
       line-height: 1.65;
     }
 
-    a { color: inherit; text-decoration: none; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-    img { display: block; width: 100%; object-fit: cover; }
+    img {
+      display: block;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    button, input, select, textarea {
+      font: inherit;
+    }
 
     .notice {
-      background: #fff1d5;
-      color: #493717;
-      padding: 9px 16px;
+      padding: 9px 15px;
+      background: #fff0d1;
+      color: #58421c;
       text-align: center;
-      font-size: 12px;
+      font-size: 11px;
+      line-height: 1.4;
     }
 
     header {
+      position: relative;
+      z-index: 20;
       background: var(--navy);
-      color: var(--white);
-      padding: 18px 6%;
+      color: white;
+      padding: 16px 7%;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
       flex-wrap: wrap;
+      gap: 20px;
+      border-bottom: 1px solid rgba(255,255,255,.1);
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 12px;
-      font-weight: 800;
-      letter-spacing: 1px;
+      gap: 11px;
       font-size: 17px;
+      font-weight: 850;
+      letter-spacing: 1px;
+      line-height: 1.2;
     }
 
     .brand-mark {
       display: grid;
       place-items: center;
-      width: 43px;
-      height: 43px;
+      width: 44px;
+      height: 44px;
       border: 1px solid var(--gold);
+      border-radius: 9px;
       color: var(--gold);
-      font-size: 22px;
-      border-radius: 10px;
+      font-family: Georgia, serif;
+      font-size: 26px;
+      flex-shrink: 0;
     }
 
     .brand small {
       display: block;
-      color: var(--muted);
+      margin-top: 4px;
+      color: #b5c0cc;
       font-size: 9px;
-      letter-spacing: 3px;
       font-weight: 500;
+      letter-spacing: 2.4px;
     }
 
     nav {
       display: flex;
       align-items: center;
       flex-wrap: wrap;
-      gap: 22px;
-      font-size: 13px;
+      gap: 20px;
+      font-size: 12px;
+      font-weight: 650;
     }
 
-    nav a:hover { color: var(--gold); }
+    nav a {
+      transition: color .2s;
+    }
 
-    .nav-cta, .button {
-      display: inline-block;
+    nav a:hover {
+      color: var(--gold);
+    }
+
+    .nav-cta,
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 45px;
+      padding: 12px 20px;
       background: var(--gold);
-      color: var(--navy);
-      padding: 12px 19px;
-      border-radius: 4px;
-      font-weight: 750;
-      font-size: 13px;
       border: 1px solid var(--gold);
+      border-radius: 5px;
+      color: var(--navy);
+      font-size: 12px;
+      font-weight: 800;
       cursor: pointer;
       text-align: center;
+      transition: transform .2s, background .2s;
+    }
+
+    .button:hover,
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      background: #f3ca7a;
+      color: var(--navy);
     }
 
     .button.outline {
-      background: transparent;
-      border-color: rgba(255,255,255,.6);
+      background: rgba(255,255,255,.06);
+      border-color: rgba(255,255,255,.65);
       color: white;
+      backdrop-filter: blur(5px);
     }
+
+    .button.outline:hover {
+      background: rgba(255,255,255,.18);
+    }
+
+    /* FRONT PAGE VIDEO */
 
     .hero {
-      min-height: 580px;
-      background:
-        linear-gradient(90deg, rgba(9,19,31,.96),
-        rgba(9,19,31,.76) 52%, rgba(9,19,31,.28)),
-        url("https://images.unsplash.com/photo-1570125909232-eb263c188f7e?auto=format&fit=crop&w=1800&q=85")
-        center 55% / cover;
-      color: white;
+      position: relative;
+      isolation: isolate;
       display: flex;
       align-items: center;
-      padding: 90px 8%;
+      min-height: 660px;
+      overflow: hidden;
+      padding: 110px 8%;
+      background: var(--navy);
+      color: white;
     }
 
-    .hero-content { max-width: 690px; }
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -3;
+    }
+
+    .hero-poster {
+      position: absolute;
+      inset: 0;
+      z-index: -4;
+      background:
+        url("thaba-entrance2.jpg .heic")
+        center / cover no-repeat;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(6,16,28,.91) 0%,
+          rgba(6,16,28,.74) 46%,
+          rgba(6,16,28,.36) 100%
+        );
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 130px;
+      z-index: -1;
+      background: linear-gradient(
+        transparent,
+        rgba(6,16,28,.38)
+      );
+    }
+
+    .hero-content {
+      width: 100%;
+      max-width: 780px;
+    }
 
     .eyebrow {
       color: var(--gold);
       font-size: 11px;
+      font-weight: 850;
       letter-spacing: 3px;
-      font-weight: 800;
       text-transform: uppercase;
       margin-bottom: 18px;
     }
 
-    h1 {
-      font-size: clamp(42px, 7vw, 76px);
-      line-height: 1.06;
-      letter-spacing: -2px;
+    .hero h1 {
+      font-size: clamp(43px, 7.5vw, 82px);
+      line-height: 1.07;
+      letter-spacing: -2.5px;
       margin-bottom: 22px;
+      font-weight: 850;
     }
 
-    h1 span { color: var(--gold); }
+    .hero h1 span {
+      color: var(--gold);
+    }
 
     .hero p {
-      color: #d4dce5;
-      max-width: 530px;
-      font-size: 17px;
+      max-width: 550px;
       margin-bottom: 30px;
+      color: #e0e7ef;
+      font-size: clamp(15px, 2vw, 18px);
     }
 
-    .actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .hero-bottom {
+      position: absolute;
+      bottom: 25px;
+      left: 8%;
+      color: rgba(255,255,255,.76);
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* HIGHLIGHTS */
 
     .trust-strip {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      padding: 26px 7%;
       background: var(--gold);
       color: var(--navy);
-      padding: 22px 6%;
-      gap: 18px;
       text-align: center;
-      font-size: 13px;
-      font-weight: 750;
     }
 
-    .trust-strip span { display: block; font-size: 11px; font-weight: 500; }
+    .trust-strip div {
+      font-size: 13px;
+      font-weight: 850;
+      letter-spacing: .3px;
+    }
 
-    section { padding: 85px 8%; }
+    .trust-strip span {
+      display: block;
+      margin-top: 3px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0;
+    }
+
+    section.content-section {
+      padding: 90px 8%;
+    }
 
     .section-head {
-      max-width: 660px;
-      margin-bottom: 38px;
+      max-width: 700px;
+      margin-bottom: 40px;
     }
 
     .section-head h2 {
-      font-size: clamp(30px, 4vw, 45px);
       color: var(--navy);
+      font-size: clamp(32px, 4.5vw, 48px);
       line-height: 1.15;
+      letter-spacing: -1.3px;
       margin-bottom: 15px;
-      letter-spacing: -1px;
     }
 
-    .section-head p { color: #627080; }
+    .section-head p {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    /* SERVICES */
 
     .services {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
+      gap: 19px;
     }
 
     .service {
+      position: relative;
+      padding: 33px 27px;
       background: white;
-      padding: 28px;
-      border: 1px solid #e8e6df;
-      border-radius: 8px;
+      border: 1px solid #e9e5dc;
+      border-radius: 9px;
+      overflow: hidden;
       transition: transform .2s, box-shadow .2s;
     }
 
+    .service::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--gold);
+    }
+
     .service:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 28px #14243a12;
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(16,27,42,.09);
     }
 
-    .service-icon { font-size: 30px; margin-bottom: 18px; }
-
-    .service h3 { color: var(--navy); margin-bottom: 10px; font-size: 19px; }
-
-    .service p { color: #687585; font-size: 14px; }
-
-    .about {
-      background: var(--navy);
-      color: white;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 50px;
-      align-items: center;
-    }
-
-    .about img {
-      height: 390px;
-      border-radius: 8px;
-    }
-
-    .about h2 {
-      font-size: clamp(31px, 4vw, 46px);
-      line-height: 1.15;
+    .service-icon {
+      font-size: 30px;
       margin-bottom: 20px;
     }
 
-    .about p { color: #c2ccd7; margin-bottom: 16px; }
+    .service h3 {
+      color: var(--navy);
+      font-size: 19px;
+      margin-bottom: 11px;
+      line-height: 1.3;
+    }
 
-    .about .eyebrow { margin-bottom: 15px; }
+    .service p {
+      color: #687585;
+      font-size: 14px;
+    }
+
+    /* ABOUT */
+
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 65px;
+      background: var(--navy);
+      color: white;
+    }
+
+    .about h2 {
+      font-size: clamp(32px, 4.5vw, 49px);
+      line-height: 1.13;
+      letter-spacing: -1px;
+      margin-bottom: 23px;
+    }
+
+    .about p {
+      color: #c6d0dc;
+      margin-bottom: 17px;
+      font-size: 15px;
+    }
+
+    .about-photo {
+      position: relative;
+    }
+
+    .about-photo img {
+      height: 460px;
+      border-radius: 8px;
+      object-position: center;
+    }
+
+    .photo-label {
+      position: absolute;
+      left: 18px;
+      bottom: 18px;
+      padding: 12px 16px;
+      background: rgba(16,27,42,.88);
+      border-left: 3px solid var(--gold);
+      color: white;
+      border-radius: 3px;
+      font-size: 12px;
+      backdrop-filter: blur(6px);
+    }
+
+    /* GALLERY */
 
     .gallery {
       display: grid;
-      grid-template-columns: 1.2fr 1fr 1fr;
-      gap: 15px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 19px;
     }
 
     .gallery figure {
       background: white;
-      border-radius: 7px;
       overflow: hidden;
+      border-radius: 9px;
       border: 1px solid #e7e4dc;
     }
 
-    .gallery img { height: 230px; }
+    .gallery img {
+      height: 300px;
+      transition: transform .35s;
+    }
 
-    .gallery figcaption { padding: 14px; font-size: 13px; font-weight: 700; }
+    .gallery figure:hover img {
+      transform: scale(1.035);
+    }
+
+    .gallery figcaption {
+      padding: 17px 19px;
+      color: var(--navy);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .gallery figcaption span {
+      display: block;
+      color: #788494;
+      font-size: 11px;
+      font-weight: 500;
+      margin-top: 3px;
+    }
 
     .media-note {
-      background: #fff1d5;
-      padding: 13px 16px;
-      font-size: 12px;
-      color: #614b25;
-      margin-top: 20px;
+      margin-top: 21px;
+      padding: 15px 18px;
       border-radius: 5px;
+      background: #fff0d1;
+      color: #624a22;
+      font-size: 12px;
     }
 
-    .video-panel {
+    /* VIDEO SHOWCASE */
+
+    .video-showcase {
+      margin-top: 35px;
+      padding: 28px;
       background: var(--navy);
+      border-radius: 10px;
       color: white;
-      border-radius: 8px;
-      min-height: 240px;
-      padding: 35px;
-      display: grid;
-      place-items: center;
-      text-align: center;
-      margin-top: 28px;
     }
 
-    .play-icon {
-      width: 58px;
-      height: 58px;
-      display: grid;
-      place-items: center;
-      border: 1px solid var(--gold);
-      border-radius: 50%;
-      color: var(--gold);
-      font-size: 22px;
-      margin: 0 auto 16px;
+    .video-showcase h3 {
+      font-size: clamp(23px, 3vw, 31px);
+      margin-bottom: 8px;
     }
 
-    .video-panel p { color: #c3ced9; font-size: 13px; }
+    .video-showcase p {
+      color: #bfccd9;
+      font-size: 13px;
+      margin-bottom: 20px;
+    }
+
+    .showcase-video {
+      display: block;
+      width: 100%;
+      max-height: 560px;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      background: #080f19;
+      border-radius: 6px;
+    }
+
+    /* CONTACT */
 
     .contact {
       background: #eae7df;
@@ -292,84 +506,117 @@
     .contact-grid {
       display: grid;
       grid-template-columns: .9fr 1.1fr;
-      gap: 40px;
+      gap: 55px;
     }
 
     .contact h2 {
-      font-size: clamp(32px, 4vw, 45px);
       color: var(--navy);
+      font-size: clamp(32px, 4.5vw, 48px);
       line-height: 1.15;
+      letter-spacing: -1px;
       margin-bottom: 18px;
     }
 
-    .contact-intro { color: #657080; margin-bottom: 25px; }
+    .contact-intro {
+      color: #657080;
+      margin-bottom: 28px;
+    }
 
     .contact-item {
-      margin: 18px 0;
+      margin: 20px 0;
       font-size: 14px;
     }
 
-    .contact-item strong { display: block; color: var(--navy); }
-
-    .contact-card {
-      background: white;
-      padding: 30px;
-      border-radius: 8px;
-      border: 1px solid #ddd9d0;
-    }
-
-    .contact-card h3 { color: var(--navy); margin-bottom: 8px; }
-
-    .contact-card > p {
-      color: #687585;
-      font-size: 13px;
-      margin-bottom: 22px;
-    }
-
-    label {
+    .contact-item strong {
       display: block;
-      font-size: 12px;
-      font-weight: 750;
-      margin: 14px 0 6px;
+      color: var(--navy);
+      margin-bottom: 3px;
     }
 
-    input, select, textarea {
-      width: 100%;
-      padding: 13px;
-      border: 1px solid #d8dce1;
-      border-radius: 4px;
-      font: inherit;
-      font-size: 14px;
-      background: #fff;
-      color: var(--ink);
+    .contact-item a {
+      color: #294d72;
     }
-
-    textarea { min-height: 110px; resize: vertical; }
-
-    .contact-card .button { width: 100%; margin-top: 18px; }
 
     .contact-options {
       display: flex;
-      gap: 10px;
       flex-wrap: wrap;
-      margin-top: 18px;
+      gap: 10px;
+      margin-top: 25px;
     }
 
     .contact-options .button {
       flex: 1;
-      min-width: 120px;
+      min-width: 125px;
     }
 
-    .contact-options .whatsapp {
+    .button.whatsapp {
       background: #187d50;
       border-color: #187d50;
       color: white;
     }
 
+    .contact-card {
+      padding: 33px;
+      background: white;
+      border: 1px solid #ded9ce;
+      border-radius: 9px;
+      box-shadow: 0 12px 30px rgba(16,27,42,.04);
+    }
+
+    .contact-card h3 {
+      color: var(--navy);
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+
+    .contact-card > p {
+      color: #687585;
+      font-size: 13px;
+      margin-bottom: 23px;
+    }
+
+    label {
+      display: block;
+      margin: 15px 0 6px;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 13px;
+      background: white;
+      color: var(--ink);
+      border: 1px solid #d8dce1;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: 2px solid var(--gold);
+      outline-offset: 1px;
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .contact-card .button {
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    /* FOOTER */
+
     footer {
+      padding: 42px 8%;
       background: #0a1320;
       color: #c4ced8;
-      padding: 32px 8%;
       text-align: center;
       font-size: 12px;
     }
@@ -377,38 +624,146 @@
     footer .brand {
       justify-content: center;
       color: white;
-      margin-bottom: 14px;
+      margin-bottom: 18px;
     }
 
-    footer p { margin: 8px 0; }
+    footer p {
+      margin: 8px 0;
+    }
 
-    .footer-note { color: #91a0b1; font-size: 11px; }
+    .footer-note {
+      max-width: 650px;
+      margin: 12px auto;
+      color: #91a0b1;
+      font-size: 11px;
+    }
 
-    @media (max-width: 760px) {
-      header { padding: 16px 5%; }
-      nav { gap: 13px; }
-      .hero { min-height: 530px; padding: 70px 6%; }
-      .trust-strip { padding: 20px 4%; font-size: 12px; }
-      section { padding: 62px 6%; }
-      .services { grid-template-columns: 1fr; }
-      .about, .contact-grid { grid-template-columns: 1fr; gap: 30px; }
-      .about img { height: 270px; }
-      .gallery { grid-template-columns: 1fr; }
-      .gallery img { height: 240px; }
-      .contact-card { padding: 22px; }
+    /* MOBILE */
+
+    @media (max-width: 800px) {
+      header {
+        padding: 15px 5%;
+      }
+
+      nav {
+        width: 100%;
+        justify-content: space-between;
+        gap: 10px;
+        font-size: 11px;
+      }
+
+      .nav-cta {
+        padding: 10px 12px;
+        min-height: 38px;
+      }
+
+      .hero {
+        min-height: 650px;
+        padding: 95px 6% 115px;
+      }
+
+      .hero h1 {
+        letter-spacing: -1.6px;
+      }
+
+      .hero-bottom {
+        left: 6%;
+      }
+
+      .trust-strip {
+        gap: 12px;
+        padding: 22px 4%;
+      }
+
+      .trust-strip div {
+        font-size: 10px;
+      }
+
+      .trust-strip span {
+        font-size: 9px;
+      }
+
+      section.content-section {
+        padding: 65px 6%;
+      }
+
+      .services {
+        grid-template-columns: 1fr;
+      }
+
+      .about,
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .about-photo img {
+        height: 310px;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery img {
+        height: 265px;
+      }
+
+      .video-showcase {
+        padding: 18px;
+      }
+
+      .showcase-video {
+        aspect-ratio: 9 / 12;
+      }
+
+      .contact-card {
+        padding: 23px;
+      }
+    }
+
+    @media (max-width: 390px) {
+      nav {
+        gap: 8px;
+        font-size: 10px;
+      }
+
+      .hero h1 {
+        font-size: 42px;
+      }
+
+      .actions .button {
+        width: 100%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .service,
+      .gallery img,
+      .button {
+        transition: none;
+      }
     }
   </style>
 </head>
 
 <body>
+
   <div class="notice">
     Independent website concept — not an official Thaba Trans website.
   </div>
 
   <header>
-    <a href="#home" class="brand">
+    <a href="#home" class="brand" aria-label="Thaba Trans home">
       <span class="brand-mark">T</span>
-      <span>THABA TRANS<small>PASSENGER TRANSPORT</small></span>
+      <span>
+        THABA TRANS
+        <small>PASSENGER TRANSPORT</small>
+      </span>
     </a>
 
     <nav aria-label="Main navigation">
@@ -421,164 +776,326 @@
   </header>
 
   <main>
+
+    <!-- HOMEPAGE: NEW BACKGROUND VIDEO -->
+
     <section class="hero" id="home">
+
+      <div class="hero-poster" aria-hidden="true"></div>
+
+      <video
+        class="hero-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        poster="thaba-entrance2.jpg .heic"
+        aria-hidden="true">
+        <source src="Thabazimbi.MP4" type="video/mp4">
+      </video>
+
       <div class="hero-content">
-        <div class="eyebrow">Transport • Reliability • Connection</div>
-        <h1>Moving people.<br><span>Connecting futures.</span></h1>
-        <p>
-          A proposed digital home for Thaba Trans, designed to present
-          passenger transport services with clarity, confidence and a
-          professional online experience.
-        </p>
-        <div class="actions">
-          <a href="#services" class="button">Explore Services →</a>
-          <a href="#contact" class="button outline">Make an Enquiry</a>
+
+        <div class="eyebrow">
+          Thabazimbi • Limpopo • South Africa
         </div>
+
+        <h1>
+          Welcome to<br>
+          <span>Thaba Trans.</span>
+        </h1>
+
+        <p>
+          Moving people forward. Connecting communities,
+          workplaces and destinations through a proposed
+          modern digital experience inspired by Thabazimbi.
+        </p>
+
+        <div class="actions">
+          <a href="#services" class="button">
+            Explore Our Services →
+          </a>
+
+          <a href="#contact" class="button outline">
+            Make an Enquiry
+          </a>
+        </div>
+
       </div>
+
+      <div class="hero-bottom">
+        Discover the journey ↓
+      </div>
+
     </section>
 
+    <!-- SERVICE HIGHLIGHTS -->
+
     <div class="trust-strip">
-      <div>STAFF TRANSPORT<span>Workforce travel solutions</span></div>
-      <div>SCHOOL TRANSPORT<span>Transport for learners</span></div>
-      <div>REGIONAL TRAVEL<span>Connecting local communities</span></div>
+      <div>
+        STAFF TRANSPORT
+        <span>Workforce travel solutions</span>
+      </div>
+
+      <div>
+        SCHOOL TRANSPORT
+        <span>Transport for learners</span>
+      </div>
+
+      <div>
+        REGIONAL TRAVEL
+        <span>Connecting communities</span>
+      </div>
     </div>
 
-    <section id="services">
+    <!-- SERVICES -->
+
+    <section class="content-section" id="services">
+
       <div class="section-head">
-        <div class="eyebrow">What we do</div>
-        <h2>Transport built around people.</h2>
+        <div class="eyebrow">What We Do</div>
+
+        <h2>
+          Transport built<br>
+          around people.
+        </h2>
+
         <p>
-          A clear presentation of the transport services associated with
-          this website concept. Final service details can be confirmed
-          with Thaba Trans before launch.
+          Explore the proposed service categories for this
+          Thaba Trans website concept. Final operating details
+          can be confirmed directly with the company.
         </p>
       </div>
 
       <div class="services">
+
         <article class="service">
           <div class="service-icon">⛏️</div>
+
           <h3>Mine & Staff Transport</h3>
+
           <p>
-            A proposed service section for workforce transportation,
-            helping organisations communicate their transport needs.
+            A dedicated space for workforce transport enquiries,
+            helping businesses and organisations communicate
+            their passenger transport requirements.
           </p>
         </article>
 
         <article class="service">
           <div class="service-icon">🎓</div>
+
           <h3>School Transport</h3>
+
           <p>
-            A dedicated space to explain school transport arrangements
-            and provide an enquiry route for schools and families.
+            A proposed section for school transport information
+            and enquiries from schools, families and other
+            relevant organisations.
           </p>
         </article>
 
         <article class="service">
           <div class="service-icon">🚌</div>
+
           <h3>Regional Passenger Transport</h3>
+
           <p>
-            A place to present relevant routes, passenger services and
-            regional transport information once confirmed by the company.
+            A platform to present routes, passenger information
+            and regional travel services once those details
+            have been confirmed by Thaba Trans.
           </p>
         </article>
+
       </div>
     </section>
 
-    <section class="about" id="about">
+    <!-- ABOUT -->
+
+    <section class="content-section about" id="about">
+
       <div>
-        <div class="eyebrow">About the company</div>
-        <h2>A stronger online presence starts here.</h2>
+        <div class="eyebrow">Our Digital Vision</div>
+
+        <h2>
+          Rooted in Thabazimbi.<br>
+          Designed for connection.
+        </h2>
+
         <p>
-          This concept is designed to give Thaba Trans a professional
-          platform where prospective customers can learn about its
-          services and find the right way to get in touch.
+          Surrounded by the distinctive landscape of Thabazimbi,
+          this website concept brings a local identity into
+          a professional, modern online experience.
         </p>
+
         <p>
-          Company history, fleet information, operating routes,
-          certifications and other official details can be added
-          after confirmation and approval by Thaba Trans.
+          It is designed to help prospective customers explore
+          transport-related information, view local imagery
+          and find a convenient way to make an enquiry.
         </p>
-        <a href="#contact" class="button">Contact Information →</a>
+
+        <p>
+          Official company history, operating routes,
+          certifications and fleet information can be added
+          following confirmation and approval by Thaba Trans.
+        </p>
+
+        <a href="#contact" class="button">
+          Get in Touch →
+        </a>
       </div>
 
-      <img
-        src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=1000&q=85"
-        alt="Illustrative passenger coach photograph"
-        loading="lazy">
+      <div class="about-photo">
+        <img
+          src="thaba-entrance.jpg .heic"
+          alt="Thabazimbi landscape and transport premises viewed from the roadside"
+          loading="lazy">
+
+        <div class="photo-label">
+          Inspired by Thabazimbi, Limpopo
+        </div>
+      </div>
+
     </section>
 
-    <section id="fleet">
+    <!-- FOUR NEW PHOTOGRAPHS -->
+
+    <section class="content-section" id="fleet">
+
       <div class="section-head">
-        <div class="eyebrow">Fleet & media</div>
-        <h2>See the journey.</h2>
+        <div class="eyebrow">Explore Thabazimbi</div>
+
+        <h2>
+          A place worth<br>
+          the journey.
+        </h2>
+
         <p>
-          A proposed gallery for company-approved photographs, fleet
-          images and videos.
+          A visual introduction to the surroundings,
+          local roads and transport environment of Thabazimbi,
+          captured through the photographs supplied
+          for this website concept.
         </p>
       </div>
 
       <div class="gallery">
+
         <figure>
           <img
-            src="https://images.unsplash.com/photo-1570125909232-eb263c188f7e?auto=format&fit=crop&w=900&q=80"
-            alt="Illustrative passenger bus"
+            src="thaba-entrance2.jpg .heic"
+            alt="Entrance to the transport premises with green hills behind it"
             loading="lazy">
-          <figcaption>Passenger transport</figcaption>
+
+          <figcaption>
+            The Entrance
+            <span>Transport premises and surrounding hills</span>
+          </figcaption>
         </figure>
 
         <figure>
           <img
-            src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=800&q=80"
-            alt="Illustrative coach"
+            src="thaba-entrance.jpg .heic"
+            alt="Roadside view of buses, trees and the Thabazimbi hills"
             loading="lazy">
-          <figcaption>Coach travel</figcaption>
+
+          <figcaption>
+            Around the Premises
+            <span>A view of the local transport environment</span>
+          </figcaption>
         </figure>
 
         <figure>
           <img
-            src="https://images.unsplash.com/photo-1494515843206-f3117d3f51b7?auto=format&fit=crop&w=800&q=80"
-            alt="Illustrative road journey"
+            src="thaba-entrance4.jpg .heic"
+            alt="Transport yard behind a boundary wall with green mountains"
             loading="lazy">
-          <figcaption>Journeys and connections</figcaption>
+
+          <figcaption>
+            Transport & Landscape
+            <span>Where local travel meets the landscape</span>
+          </figcaption>
         </figure>
+
+        <figure>
+          <img
+            src="thaba-entrance3.jpg .heic"
+            alt="Road and pedestrian walkway with the Thabazimbi mountains in the distance"
+            loading="lazy">
+
+          <figcaption>
+            The Road Ahead
+            <span>Scenery from the heart of Thabazimbi</span>
+          </figcaption>
+        </figure>
+
       </div>
 
       <div class="media-note">
-        Demo imagery only. These photographs are illustrative and are
-        not represented as Thaba Trans vehicles or property. Replace
-        them with company-approved photographs before the official launch.
+        Photographs supplied for this independent website concept.
+        Company branding, image permissions and operational
+        information should be confirmed before any official launch.
       </div>
 
-      <div class="video-panel">
-        <div>
-          <div class="play-icon">▶</div>
-          <h3>Thaba Trans — Video Showcase</h3>
-          <p>
-            Reserved for approved fleet footage and company videos.
-            No company video has been supplied for this concept yet.
-          </p>
-        </div>
+      <!-- SECOND VIDEO PLAYER -->
+
+      <div class="video-showcase">
+
+        <div class="eyebrow">Experience the Landscape</div>
+
+        <h3>Discover Thabazimbi in Motion</h3>
+
+        <p>
+          Watch the supplied Thabazimbi video below.
+          Use the player controls to enable sound,
+          pause or view it in full screen.
+        </p>
+
+        <video
+          class="showcase-video"
+          controls
+          playsinline
+          preload="metadata"
+          poster="thaba-entrance3.jpg .heic">
+          <source src="Thabazimbi.MP4" type="video/mp4">
+          Your browser does not support video playback.
+        </video>
+
       </div>
+
     </section>
 
-    <section class="contact" id="contact">
+    <!-- CONTACT -->
+
+    <section class="content-section contact" id="contact">
+
       <div class="contact-grid">
+
         <div>
-          <div class="eyebrow">Get in touch</div>
-          <h2>Let's talk transport.</h2>
+
+          <div class="eyebrow">Get In Touch</div>
+
+          <h2>
+            Let's talk<br>
+            transport.
+          </h2>
+
           <p class="contact-intro">
-            Have a transport-related enquiry? Use the contact details
-            below, or prepare a message using the enquiry form.
+            Have a transport-related enquiry?
+            Use the contact information below or
+            prepare an email using the enquiry form.
           </p>
 
           <div class="contact-item">
             <strong>Telephone</strong>
-            <a href="tel:+27147723370">+27 (0)14 772 3370</a>
+            <a href="tel:+27147723370">
+              +27 (0)14 772 3370
+            </a>
           </div>
 
           <div class="contact-item">
             <strong>Email</strong>
-            <a href="mailto:dirk@thabatrans.co.za">dirk@thabatrans.co.za</a>
+            <a href="mailto:dirk@thabatrans.co.za">
+              dirk@thabatrans.co.za
+            </a>
           </div>
 
           <div class="contact-item">
@@ -587,9 +1104,13 @@
           </div>
 
           <div class="contact-options">
-            <a class="button" href="mailto:dirk@thabatrans.co.za">
+
+            <a
+              class="button"
+              href="mailto:dirk@thabatrans.co.za">
               Email Us
             </a>
+
             <a
               class="button whatsapp"
               href="https://wa.me/27147723370"
@@ -597,30 +1118,50 @@
               rel="noopener noreferrer">
               WhatsApp
             </a>
+
           </div>
-          <p style="font-size:11px;color:#687585;margin-top:12px">
-            Contact details and messaging availability must be verified
-            by the company before this concept is published officially.
+
+          <p style="font-size:11px;color:#687585;margin-top:15px">
+            Contact details and WhatsApp availability must
+            be confirmed with the company before an official launch.
           </p>
+
         </div>
 
         <div class="contact-card">
-          <h3>Send an enquiry</h3>
+
+          <h3>Send an Enquiry</h3>
+
           <p>
-            Complete the fields to prepare an email message.
-            Your email app will open so you can review and send it.
+            Complete the form to prepare an email.
+            Your email application will open so you
+            can review the message before sending it.
           </p>
 
           <form id="enquiry-form">
-            <label for="name">Your name</label>
-            <input id="name" name="name" required
-              placeholder="Enter your name">
 
-            <label for="email">Your email address</label>
-            <input id="email" name="email" type="email" required
-              placeholder="you@example.com">
+            <label for="name">Your Name</label>
 
-            <label for="service">Type of enquiry</label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              autocomplete="name"
+              placeholder="Enter your name"
+              required>
+
+            <label for="email">Your Email Address</label>
+
+            <input
+              id="email"
+              name="email"
+              type="email"
+              autocomplete="email"
+              placeholder="you@example.com"
+              required>
+
+            <label for="service">Type of Enquiry</label>
+
             <select id="service" name="service" required>
               <option value="">Select an option</option>
               <option>Mine or staff transport</option>
@@ -630,45 +1171,95 @@
               <option>Other enquiry</option>
             </select>
 
-            <label for="message">Your message</label>
-            <textarea id="message" name="message" required
-              placeholder="How can the team assist you?"></textarea>
+            <label for="message">Your Message</label>
+
+            <textarea
+              id="message"
+              name="message"
+              placeholder="How can the team assist you?"
+              required></textarea>
 
             <button class="button" type="submit">
               Prepare Email Enquiry →
             </button>
+
           </form>
+
         </div>
+
       </div>
+
     </section>
+
   </main>
 
+  <!-- FOOTER -->
+
   <footer>
+
     <div class="brand">
       <span class="brand-mark">T</span>
-      <span>THABA TRANS<small>PASSENGER TRANSPORT</small></span>
+
+      <span>
+        THABA TRANS
+        <small>PASSENGER TRANSPORT</small>
+      </span>
     </div>
-    <p>Designed to connect people, services and destinations.</p>
-    <p class="footer-note">
-      Independent demonstration concept. Not an official company website.
-      Images are illustrative; company details require verification.
+
+    <p>
+      Moving people forward. Connecting destinations.
     </p>
-    <p>© <span id="year"></span> Website concept</p>
+
+    <p class="footer-note">
+      Independent demonstration concept.
+      Not an official Thaba Trans website.
+      Company information and image permissions
+      require confirmation before an official launch.
+    </p>
+
+    <p>
+      © <span id="year"></span> Thaba Trans Website Concept
+    </p>
+
   </footer>
 
   <script>
+    // Current year
     document.getElementById("year").textContent =
       new Date().getFullYear();
 
+    // Homepage video playback
+    const heroVideo = document.querySelector(".hero-video");
+
+    if (heroVideo) {
+      heroVideo.muted = true;
+
+      const playPromise = heroVideo.play();
+
+      if (playPromise !== undefined) {
+        playPromise.catch(function () {
+          // The poster remains visible if autoplay is blocked.
+        });
+      }
+    }
+
+    // Email enquiry form
     document.getElementById("enquiry-form").addEventListener(
       "submit",
       function (event) {
         event.preventDefault();
 
-        const name = document.getElementById("name").value.trim();
-        const email = document.getElementById("email").value.trim();
-        const service = document.getElementById("service").value;
-        const message = document.getElementById("message").value.trim();
+        const name =
+          document.getElementById("name").value.trim();
+
+        const email =
+          document.getElementById("email").value.trim();
+
+        const service =
+          document.getElementById("service").value;
+
+        const message =
+          document.getElementById("message").value.trim();
 
         const subject = encodeURIComponent(
           "Website enquiry: " + service
@@ -683,9 +1274,12 @@
 
         window.location.href =
           "mailto:dirk@thabatrans.co.za?subject=" +
-          subject + "&body=" + body;
+          subject +
+          "&body=" +
+          body;
       }
     );
   </script>
+
 </body>
 </html>
